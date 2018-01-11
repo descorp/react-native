@@ -5,44 +5,24 @@ import { AppRegistry, View, Text, TextInput,Alert, Button } from 'react-native';
 // var english_german = require('../english_german.json');
 import ScreenTwo from './ScreenTwo'
 import MyList from './MyList'
+import { TextField } from 'react-native-material-textfield';
+
 import { StyleSheet } from 'react-native';
 
 
-var Style = StyleSheet.create({
+var styles = StyleSheet.create({
     container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    margin: 16
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  input_text: {
+    fontSize: 16,
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-  textInput: {
-      height: 40,
-      borderColor: 'gray',
-      borderWidth: 1
 
-  },
-    parent: {
-        padding: 16
-    },
-    germanLabel: {
-        marginTop: 20,
-        fontWeight: 'bold'
-    },
-    germanWord: {
-        marginTop: 15,
-        fontSize: 30,
-        fontStyle: 'italic'
-    }
+  button_text: {
+    fontSize: 16,
+    margin: 16,
+  }
 });
 
 
@@ -65,25 +45,22 @@ export default class Login extends Component {
     render() {
         
         return  (
-        <View >
+        <View style={styles.container}>
 
-    <TextInput
-    style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-    placeholder={this.state.loginHint}
+    <TextField style={styles.input_text}
+    label='Login'
     onChangeText={(loginName) => this.setState({loginName})}/>
        
-    <TextInput
-    style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+    <TextField style={styles.input_text}
     onChangeText={(text) => this.setState({text})}
     secureTextEntry = {true}
-    placeholder={this.state.passwordHint}
+    label='Password'
     onChangeText={(password) => this.setState({password})}
     /> 
 
     <Button
     title="Login"
-    onPress={this.checkIfTextIsEmpty}
-    color="#841584"/>
+    onPress={this.checkIfTextIsEmpty}/>
 
         </View>);
     }

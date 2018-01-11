@@ -14,10 +14,10 @@ const App = StackNavigator({
     ScreenTwo: { screen: ScreenTwo }
   });
 
+  
+
   export default class AppMain extends Component {
     render() {
       return <App />;
     }
   }
-
-// AppRegistry.registerComponent('Dictionary', () => AppMain);
