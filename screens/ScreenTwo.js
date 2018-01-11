@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry, View, Text, ListView, DatePickerAndroid, TextInput, Button, ToastAndroid, ActivityIndicator } from 'react-native';
+import { AppRegistry, View, Text, Image, DatePickerAndroid, TextInput, Button, ToastAndroid, ActivityIndicator } from 'react-native';
 // import Style from './Style';
 
 // var english_german = require('../english_german.json');
@@ -8,10 +8,15 @@ import { StyleSheet } from 'react-native';
 var styles = StyleSheet.create({
     container: {
         flex: 1,
-        
+        justifyContent: 'space-between',
         margin: 16
     },
+    image: { 
+        flex: 1,
+        margin: 16 
+    },
     welcome: {
+        
         fontSize: 20
     }
 });
@@ -42,10 +47,12 @@ export default class ScreenTwo extends Component {
                     Your plant is  {params.item.name} with id {params.item.id}
                 </Text>
 
+                <Image source={{uri: 'http://lorempixel.com/480/760/nature'}}
+                    style={styles.image} />
+
                 <Button style={styles.welcome}
                     title="Select the date for plant"
                     onPress={this.showAndroidDatePicker} />
-
 
                 <Text style={styles.welcome}>
                     {selectedDate}
