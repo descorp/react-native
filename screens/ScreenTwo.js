@@ -8,6 +8,7 @@ import { StyleSheet } from 'react-native';
 var styles = StyleSheet.create({
     container: {
         flex: 1,
+        
         margin: 16
     },
     welcome: {

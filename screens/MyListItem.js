@@ -14,15 +14,20 @@ import {
 
 const styles = StyleSheet.create({
   body: {
-    margin: 16,
+    margin: 4,
+  },
+  container: {
+    flex: 1,
   },
   title: {
-    textAlign: 'left',
+    flex: 1,
     fontSize: 18,
     backgroundColor: 'transparent'
   },
   plant_date: {
-    textAlign: 'left',
+    flex: 1,
+    alignItems: 'stretch',
+    marginTop: 5,
     fontSize: 12,
     backgroundColor: 'transparent'
   },
@@ -46,11 +51,11 @@ export default class MyListItem extends React.PureComponent {
       <TouchableOpacity style={styles.body} onPress={this._onPress}>
         <Card>
           <CardTitle>
-            <Text style={styles.title}>  Your plant {this.props.item.name} </Text>
+            <View style={styles.container}> 
+              <Text style={styles.title}>  Plant named "{this.props.item.name}" </Text>
+              <Text style={styles.plant_date} >  The last day is {this.props.item.wateringDays[0]} </Text>
+            </View>
           </CardTitle>
-          <CardContent>
-            <Text style={styles.plant_date}>  The last day is {this.props.item.wateringDays[0]} </Text>
-          </CardContent>
         </Card>
       </TouchableOpacity>
     );
