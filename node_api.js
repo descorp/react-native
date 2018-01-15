@@ -2,7 +2,7 @@ const Interfake = require('interfake')
 
 const interfake = new Interfake()
 
-interfake.post('/login').body({
+interfake.post('/login').status(200).body({
   success: true
 })
 

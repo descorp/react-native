@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry, Keyboard, FlatList, View, Text, ListView, TextInput, Button, ToastAndroid, RefreshControl } from 'react-native';
+import { AppRegistry, Keyboard, FlatList, View, RefreshControl } from 'react-native';
 import MyListItem from './MyListItem'
 import PlantList from './PlanList'
 import ScreenTwo from './ScreenTwo'
@@ -40,7 +40,7 @@ export default class MyList extends Component {
   }
 
   _fetchDataFromAPI() {
-    return fetch('http://192.168.2.29:3000/list')
+    return fetch('http://10.230.193.135:3000/list')
       .then((response) => response.json())
       .then((responseJson) => {
         console.log(responseJson)
@@ -58,7 +58,7 @@ export default class MyList extends Component {
   }
 
   componentDidMount() {
-    Keyboard.dismiss;
+    Keyboard.dismiss();
     this._fetchDataFromAPI()
   }
 
@@ -67,7 +67,7 @@ export default class MyList extends Component {
   };
 
   _onRefresh() {
-    this.setState({isLoading: true});
+    this.setState({ isLoading: true });
     this._fetchDataFromAPI();
   }
 
@@ -87,17 +87,17 @@ export default class MyList extends Component {
 
   render() {
     return (
-      <View> 
-      <FlatList
-        refreshControl={
-          <RefreshControl
-            refreshing={this.state.isLoading}
-            onRefresh={this._onRefresh.bind(this)}
-          />
-        }
-        data={this.state.dataArray.savedData}
-        renderItem={this._renderItem}
-      />
+      <View>
+        <FlatList
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.isLoading}
+              onRefresh={this._onRefresh.bind(this)}
+            />
+          }
+          data={this.state.dataArray.savedData}
+          renderItem={this._renderItem}
+        />
       </View>
     );
   }
